@@ -7,7 +7,7 @@ import AddTask from "../../components/todo/AddTask";
 
 import './index.css'
 
-const ApiPath = 'https://mern-server.zeabur.app' + '/api';
+const ApiPath = 'https://mern-server-todo.zeabur.app' + '/api';
 
 const Todo = () => {
   const [showAdd, setShowAdd] = useState(false)
