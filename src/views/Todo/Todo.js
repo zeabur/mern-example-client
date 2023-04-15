@@ -7,7 +7,7 @@ import AddTask from "../../components/todo/AddTask";
 
 import './index.css'
 
-const ApiPath = process.env.SERVER_API_PATH + '/api';
+const ApiPath = process.env.MERN_SERVER_HOST + '/api';
 
 const Todo = () => {
   const [showAdd, setShowAdd] = useState(false)
