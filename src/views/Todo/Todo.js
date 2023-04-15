@@ -7,13 +7,15 @@ import AddTask from "../../components/todo/AddTask";
 
 import './index.css'
 
+const ApiPath = process.env.SERVER_API_PATH + '/api';
+
 const Todo = () => {
   const [showAdd, setShowAdd] = useState(false)
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
     axios
-      .get('https://retodo-server.zeabur.app/api/get')
+      .get(`${ApiPath}/get`)
       .then(res => setTasks(res.data.items))
   }, [])
 
@@ -22,7 +24,7 @@ const Todo = () => {
       const _id = Math.floor(Math.random() * 10000) + 1
       const newTask = { _id, text: task.text, date: task.day }
 
-      await axios.post('https://retodo-server.zeabur.app/api/add', newTask)
+      await axios.post(`${ApiPath}/add`, newTask)
 
       setTasks([...tasks, newTask])
     } catch (error) {
@@ -32,7 +34,7 @@ const Todo = () => {
 
   const deleteTask = async (_id) => {
     try {
-      await axios.delete('https://retodo-server.zeabur.app/api/delete', {
+      await axios.delete(`${ApiPath}/delete`, {
         data: { _id }
       })
 
