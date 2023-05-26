@@ -7,14 +7,14 @@ import AddTask from "../../components/todo/AddTask";
 
 import './index.css'
 
-const ApiPath = (process.env.BACKEND_API_PATH || 'http://localhost:5000') + '/api';
-console.log(ApiPath)
+const ApiPath = (process.env.REACT_APP_API_PATH || 'http://localhost:5000') + '/api';
+
 const Todo = () => {
   const [showAdd, setShowAdd] = useState(false)
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    console.log(ApiPath)
+    
     axios
       .get(`${ApiPath}/get`)
       .then(res => setTasks(res.data.items))
