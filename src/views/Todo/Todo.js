@@ -14,7 +14,7 @@ const Todo = () => {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    
+    console.log(process.env)
     axios
       .get(`${ApiPath}/get`)
       .then(res => setTasks(res.data.items))
